@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/insert" element={<InsertPage />} />
+        <Route path="/insertt" element={<InsertPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>

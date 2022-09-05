@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export default function GeneralForm() {
   const [name, setName] = useState('');
@@ -13,9 +14,11 @@ export default function GeneralForm() {
   const [date, setDate] = useState('');
   const [event, setEvent] = useState('');
 
+  const location = useLocation();
+
   // useEffect(() => {
-  //   console.log(event);
-  // })
+  //   console.log(location.pathname);
+  // });
 
   return (
     <Container>
@@ -97,7 +100,7 @@ export default function GeneralForm() {
           </Form.Select>
         </Form.Group>
 
-        <Button>Finalizar</Button>
+        {location.pathname === '/insert' && <Button>Finalizar</Button>}
       </Form>
     </Container>
   );
