@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import InsertPage from './pages/insertPage/insertPage';
+import InsertPage from './pages/insertPage/InsertPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePage from './pages/homePage/homePage';
+import HomePage from './pages/homePage/HomePage';
 import store from './redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -13,7 +13,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/insert" element={<InsertPage />} />
-        <Route path="/insertt" element={<InsertPage />} />
+        <Route path="/search" element={<InsertPage />} />
+        <Route path="/delete" element={<InsertPage />} />
       </Routes>
     </BrowserRouter>
   </Provider>
