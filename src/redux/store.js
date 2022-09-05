@@ -1,5 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import lostCommunicationReducer from './reducers/lostCommunicationSlice';
 
 export default configureStore({
-  reducer: {}
-})
+  reducer: {
+    lost: lostCommunicationReducer,
+  },
+});
