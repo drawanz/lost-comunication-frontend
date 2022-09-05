@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import GeneralForm from '../../components/generalForm/generalForm';
+import GeneralForm from '../../components/generalForm/GeneralForm';
 
 
 export default function InsertPage() {

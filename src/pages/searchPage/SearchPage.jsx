@@ -1,11 +1,11 @@
 import Container from 'react-bootstrap/Container';
-import GeneralForm from '../../components/generalForm/generalForm';
-
+import GeneralForm from '../../components/generalForm/GeneralForm';
+import SearchComponent from '../../components/searchComponent/SearchComponent';
 
 export default function InsertPage() {
   return (
     <Container>
-      <h2>Insira uma nova perda no formulário abaixo</h2>
+      <SearchComponent />
       <GeneralForm />
     </Container>
   );
