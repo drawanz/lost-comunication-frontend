@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import Axios from 'axios';
+import Alert from 'react-bootstrap/Alert';
 import { Button, Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +16,7 @@ import {
   changeLavoura,
   changeLongitude,
   changeName,
+  clearStore,
 } from '../../redux/reducers/lostCommunicationSlice.js';
 import ShowLostComponent from '../../components/showLostComponent/ShowLostComponent.jsx';
 
@@ -55,13 +57,51 @@ export default function SearchComponent() {
     }
   };
 
+  const handleDelete = async () => {
+    setLoading(true);
+    try {
+      const response = await Axios.delete(
+        `https://softfocus-lc-api.herokuapp.com/lost/${cpf}`
+      );
+      alert(response.data.message);
+      dispatch(clearStore());
+      setDeleteMode(false);
+    } catch (e) {
+      alert(e.response.data.detail);
+    }
+    setCpf('');
+    setLoading(false);
+  };
+
   return (
     <Container>
       {searchCompleted ? (
         <>
           <ShowLostComponent />
           {deleteMode ? (
-            <div>delete mode on</div>
+            <>
+              <Alert key="warning" variant="warning">
+                Atenção: Não haverá a possibilidade de recuperação dos dados
+                deletados!
+              </Alert>
+              {loading ? (
+                <Button variant="primary" disabled>
+                  <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  Loading...
+                </Button>
+              ) : (
+                <Button variant="danger" onClick={() => handleDelete()}>
+                  Prosseguir
+                </Button>
+              )}
+              <Button onClick={() => setDeleteMode(false)}>Cancelar</Button>
+            </>
           ) : (
             <>
               <Button onClick={() => navigate('/update')}>Editar</Button>
