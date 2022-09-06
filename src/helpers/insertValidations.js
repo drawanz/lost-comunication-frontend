@@ -1,4 +1,5 @@
-import { validate } from 'gerador-validador-cpf';
+// eslint-disable-next-line import/extensions
+import isCpfValid from './cpfValidation.js';
 
 const verifyName = (name) => {
   if (name === '') {
@@ -18,7 +19,7 @@ const verifyEmail = (email) => {
 };
 
 const verifyCpf = (cpf) => {
-  if (!validate(cpf)) {
+  if (!isCpfValid(cpf)) {
     return { message: 'CPF inválido' };
   }
   return true;
@@ -31,7 +32,7 @@ const verifyCoords = (latitude, longitude) => {
   if (longitude < -180 || longitude > 180) {
     return { message: 'Longitude precisa estar entre -180° e 180°' };
   }
-  return true
+  return true;
 };
 
 const verifyCrop = (typeCrop) => {
@@ -57,7 +58,7 @@ const verifyEvent = (event) => {
   return true;
 };
 
-export default function insertValidations(payload) {
+const insertValidations = (payload) => {
   const verifyingName = verifyName(payload.name);
   const verifyingEmail = verifyEmail(payload.email);
   const verifyingCpf = verifyCpf(payload.cpf);
@@ -76,3 +77,5 @@ export default function insertValidations(payload) {
 
   return true;
 }
+
+export default insertValidations
