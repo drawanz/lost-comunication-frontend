@@ -67,13 +67,13 @@ const insertValidations = (payload) => {
   const verifyingDate = verifyDate(payload.date);
   const verifyingEvent = verifyEvent(payload.event);
 
-  if (verifyingName.message) return verifyingName.message;
-  if (verifyingEmail.message) return verifyingEmail.message;
-  if (verifyingCpf.message) return verifyingCpf.message;
-  if (verifyingCoords.message) return verifyingCoords.message;
-  if (verifyingCrop.message) return verifyingCrop.message;
-  if (verifyingDate.message) return verifyingDate.message;
-  if (verifyingEvent.message) return verifyingEvent.message;
+  if (verifyingName.message) return verifyingName;
+  if (verifyingEmail.message) return verifyingEmail;
+  if (verifyingCpf.message) return verifyingCpf;
+  if (verifyingCoords.message) return verifyingCoords;
+  if (verifyingCrop.message) return verifyingCrop;
+  if (verifyingDate.message) return verifyingDate;
+  if (verifyingEvent.message) return verifyingEvent;
 
   return true;
 }
