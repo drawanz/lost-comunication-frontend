@@ -23,7 +23,7 @@ export default function GeneralForm() {
     lavoura,
     data_colheita,
     evento,
-  } = useSelector((state) => state.lost);
+  } = useSelector((state) => state.newLost);
 
   return (
         <Form>

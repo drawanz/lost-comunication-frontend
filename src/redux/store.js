@@ -3,6 +3,6 @@ import lostCommunicationReducer from './reducers/lostCommunicationSlice';
 
 export default configureStore({
   reducer: {
-    lost: lostCommunicationReducer,
+    newLost: lostCommunicationReducer,
   },
 });

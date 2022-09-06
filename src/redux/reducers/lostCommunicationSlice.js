@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  loading: false,
   nome: '',
   email: '',
   CPF: '',
@@ -24,10 +23,8 @@ export const lostCommunicationSlice = createSlice({
     changeLavoura: (state, { payload }) => ({ ...state, lavoura: payload }),
     changeData: (state, { payload }) => ({ ...state, data_colheita: payload }),
     changeEvento: (state, { payload }) => ({ ...state, evento: payload }),
-    changeLoading: (state, { payload }) => ({ ...state, loading: payload }),
     clearStore: (state) => ({
       ...state,
-      loading: false,
       nome: '',
       email: '',
       CPF: '',

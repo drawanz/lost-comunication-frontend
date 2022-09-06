@@ -22,7 +22,7 @@ export default function InsertPage() {
     lavoura,
     data_colheita,
     evento,
-  } = useSelector((state) => state.lost);
+  } = useSelector((state) => state.newLost);
 
   const payload = {
     nome,
