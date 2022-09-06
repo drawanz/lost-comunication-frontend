@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isLoading: false,
+  loading: false,
   nome: '',
   email: '',
   CPF: '',
@@ -24,19 +24,20 @@ export const lostCommunicationSlice = createSlice({
     changeLavoura: (state, { payload }) => ({ ...state, lavoura: payload }),
     changeData: (state, { payload }) => ({ ...state, data_colheita: payload }),
     changeEvento: (state, { payload }) => ({ ...state, evento: payload }),
+    changeLoading: (state, { payload }) => ({ ...state, loading: payload }),
+    clearStore: (state) => ({
+      ...state,
+      loading: false,
+      nome: '',
+      email: '',
+      CPF: '',
+      latitude: '',
+      longitude: '',
+      lavoura: '',
+      data_colheita: '',
+      evento: '',
+    }),
   },
-  clean: (state) => ({
-    ...state,
-    isLoading: false,
-    nome: '',
-    email: '',
-    CPF: '',
-    latitude: '',
-    longitude: '',
-    lavoura: '',
-    data_colheita: '',
-    evento: '',
-  }),
 });
 
 export const {
@@ -48,7 +49,8 @@ export const {
   changeLavoura,
   changeData,
   changeEvento,
-  clean,
+  changeLoading,
+  clearStore,
 } = lostCommunicationSlice.actions;
 
 export default lostCommunicationSlice.reducer;
