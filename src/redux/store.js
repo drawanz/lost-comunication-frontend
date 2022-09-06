@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import lostCommunicationReducer from './reducers/lostCommunicationSlice';
+import newLostCommunicationReducer from './reducers/newLostCommunicationSlice';
+import lostCommunicationReducer from './reducers/lostCommunicationSlice'
 
 export default configureStore({
   reducer: {
-    newLost: lostCommunicationReducer,
+    newLost: newLostCommunicationReducer,
+    lost: lostCommunicationReducer,
   },
 });
