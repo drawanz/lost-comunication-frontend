@@ -59,13 +59,13 @@ const verifyEvent = (event) => {
 };
 
 const insertValidations = (payload) => {
-  const verifyingName = verifyName(payload.name);
+  const verifyingName = verifyName(payload.nome);
   const verifyingEmail = verifyEmail(payload.email);
-  const verifyingCpf = verifyCpf(payload.cpf);
+  const verifyingCpf = verifyCpf(payload.CPF);
   const verifyingCoords = verifyCoords(payload.latitude, payload.longitude);
-  const verifyingCrop = verifyCrop(payload.typeCrop);
-  const verifyingDate = verifyDate(payload.date);
-  const verifyingEvent = verifyEvent(payload.event);
+  const verifyingCrop = verifyCrop(payload.lavoura);
+  const verifyingDate = verifyDate(payload.data_colheita);
+  const verifyingEvent = verifyEvent(payload.evento);
 
   if (verifyingName.message) return verifyingName;
   if (verifyingEmail.message) return verifyingEmail;
