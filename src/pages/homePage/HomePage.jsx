@@ -16,15 +16,10 @@ export default function HomePage() {
 
       <div>
         <p>
-          Para consultar ou atualizar uma perda, por favor, clique no botão
+          Para consultar, atualizar ou deletar uma perda, por favor, clique no botão
           abaixo
         </p>
         <Button onClick={() => navigate('/search')}>Quero consultar uma perda</Button>
-      </div>
-
-      <div>
-        <p>Para excluir uma perda, por favor, clique no botão abaixo</p>
-        <Button onClick={() => navigate('/delete')}>Quero excluir uma perda</Button>
       </div>
     </Container>
   );
