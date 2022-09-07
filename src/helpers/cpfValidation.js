@@ -1,5 +1,5 @@
 const isCpfValid = (cpf) => {
-  const newCpf = cpf.replace(/[\s.-]/g, '');
+  const newCpf = String(cpf).replace(/[\s.-]/g, '');
   let soma = 0;
   let resto;
 
