@@ -122,7 +122,9 @@ export default function SearchComponent() {
             </>
           ) : (
             <div className="buttons-container">
-              <Button variant="success" onClick={() => navigate('/update')}>Editar</Button>
+              <Button variant="success" onClick={() => navigate('/update')}>
+                Editar
+              </Button>
               <Button variant="danger" onClick={() => setDeleteMode(true)}>
                 Deletar
               </Button>
@@ -158,7 +160,9 @@ export default function SearchComponent() {
             </div>
           ) : (
             <div className="buttons-container">
-              <Button variant="success" onClick={() => handleSearch()}>Buscar</Button>
+              <Button variant="success" onClick={() => handleSearch()}>
+                Buscar
+              </Button>
               <Button onClick={() => navigate('/')}>Voltar</Button>
             </div>
           )}

@@ -78,19 +78,23 @@ export default function InsertPage() {
       <h2>Insira uma nova perda no formulário abaixo</h2>
       <GeneralForm />
       {loading ? (
-        <Button variant="primary" disabled>
-          <Spinner
-            as="span"
-            animation="border"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
+        <div className="buttons-container">
+          <Button variant="success" disabled>
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        </div>
       ) : (
-        <div className='buttons-container'>
-          <Button onClick={() => handleInsert()}>Finalizar</Button>
+        <div className="buttons-container">
+          <Button variant="success" onClick={() => handleInsert()}>
+            Finalizar
+          </Button>
           <Button onClick={() => handleCancel()}>Cancelar</Button>
         </div>
       )}
