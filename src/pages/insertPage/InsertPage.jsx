@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import GeneralForm from '../../components/generalForm/GeneralForm';
 import insertValidations from '../../helpers/insertValidations.js';
 import { clearStore } from '../../redux/reducers/lostCommunicationSlice';
+import './style.scss';
 
 export default function InsertPage() {
   const [loading, setLoading] = useState(false);
@@ -67,8 +68,13 @@ export default function InsertPage() {
     }
   };
 
+  const handleCancel = () => {
+    navigate('/');
+    dispatch(clearStore());
+  };
+
   return (
-    <Container>
+    <Container className="insert-page-container">
       <h2>Insira uma nova perda no formulário abaixo</h2>
       <GeneralForm />
       {loading ? (
@@ -83,10 +89,10 @@ export default function InsertPage() {
           Loading...
         </Button>
       ) : (
-        <>
+        <div className='buttons-container'>
           <Button onClick={() => handleInsert()}>Finalizar</Button>
-          <Button onClick={() => navigate('/')}>Cancelar</Button>
-        </>
+          <Button onClick={() => handleCancel()}>Cancelar</Button>
+        </div>
       )}
     </Container>
   );

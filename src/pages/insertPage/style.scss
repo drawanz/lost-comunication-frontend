@@ -1,0 +1,14 @@
+.insert-page-container {
+  h2 {
+    text-align: center;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    margin: 2rem 0 0 1rem;
+  }
+}
