@@ -9,7 +9,7 @@ import {
   changeLavoura,
   changeLongitude,
   changeName,
-} from '../../redux/reducers/newLostCommunicationSlice';
+} from '../../redux/reducers/lostCommunicationSlice';
 
 export default function GeneralForm() {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default function GeneralForm() {
     lavoura,
     data_colheita,
     evento,
-  } = useSelector((state) => state.newLost);
+  } = useSelector((state) => state.lost);
 
   return (
     <Form>
