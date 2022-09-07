@@ -4,12 +4,14 @@ import { Spinner } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import GeneralForm from '../../components/generalForm/GeneralForm';
 import insertValidations from '../../helpers/insertValidations.js';
 import { clearStore } from '../../redux/reducers/lostCommunicationSlice';
 
 export default function InsertPage() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -47,6 +49,7 @@ export default function InsertPage() {
       setLoading(false);
       dispatch(clearStore());
       alert(data.message);
+      navigate('/');
     } catch (e) {
       alert(e.response.data.detail);
       setLoading(false);
