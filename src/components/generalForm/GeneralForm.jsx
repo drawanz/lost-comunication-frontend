@@ -49,7 +49,7 @@ export default function GeneralForm() {
       <Form.Group className="mb-3" controlId="cpfFormGroup">
         <Form.Label>CPF do produtor rural</Form.Label>
         <Form.Control
-          type="number"
+          type="text"
           onChange={(e) => dispatch(changeCpf(e.target.value))}
           value={CPF}
           placeholder="Use apenas números"
@@ -58,13 +58,13 @@ export default function GeneralForm() {
       <Form.Group className="mb-3" controlId="localizaçãoFormGroup">
         <Form.Label>Localização da lavoura</Form.Label>
         <Form.Control
-          type="text"
+          type="number"
           onChange={(e) => dispatch(changeLatitude(e.target.value))}
           value={latitude}
           placeholder="Latitude"
         />
         <Form.Control
-          type="text"
+          type="number"
           onChange={(e) => dispatch(changeLongitude(e.target.value))}
           value={longitude}
           placeholder="Longitude"
