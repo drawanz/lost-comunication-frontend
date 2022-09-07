@@ -70,8 +70,10 @@ export default function SearchComponent() {
       setSearchCompleted(false);
       setCpf('');
       setLoading(false);
+      navigate('/')
     } catch (e) {
       alert(e.response.data.detail);
+      setLoading(false);
     }
   };
 
