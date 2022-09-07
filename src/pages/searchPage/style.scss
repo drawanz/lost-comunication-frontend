@@ -1,0 +1,17 @@
+.search-page-container {
+  margin-top: 1rem;
+  h4 {
+    text-align: center;
+    margin-bottom: 1rem;
+
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    margin: 0.5rem 0 0 1rem;
+  }
+}

@@ -19,6 +19,7 @@ import {
   clearStore,
 } from '../../redux/reducers/lostCommunicationSlice.js';
 import ShowLostComponent from '../../components/showLostComponent/ShowLostComponent.jsx';
+import './style.scss';
 
 export default function SearchComponent() {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ export default function SearchComponent() {
   };
 
   return (
-    <Container>
+    <Container className="search-page-container">
       {searchCompleted || CPF ? (
         <>
           <ShowLostComponent />
@@ -98,36 +99,42 @@ export default function SearchComponent() {
                 deletados!
               </Alert>
               {loading ? (
-                <Button variant="primary" disabled>
-                  <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                  />
-                  Loading...
-                </Button>
+                <div className="buttons-container">
+                  <Button variant="danger" disabled>
+                    <Spinner
+                      as="span"
+                      animation="border"
+                      size="sm"
+                      role="status"
+                      aria-hidden="true"
+                    />
+                    Loading...
+                  </Button>
+                </div>
               ) : (
-                <Button variant="danger" onClick={() => handleDelete()}>
-                  Prosseguir
-                </Button>
+                <div className="buttons-container">
+                  <Button variant="danger" onClick={() => handleDelete()}>
+                    Prosseguir
+                  </Button>
+                  <Button onClick={() => setDeleteMode(false)}>Voltar</Button>
+                </div>
               )}
-              <Button onClick={() => setDeleteMode(false)}>Voltar</Button>
             </>
           ) : (
-            <>
-              <Button onClick={() => navigate('/update')}>Editar</Button>
-              <Button onClick={() => setDeleteMode(true)}>Deletar</Button>
+            <div className="buttons-container">
+              <Button variant="success" onClick={() => navigate('/update')}>Editar</Button>
+              <Button variant="danger" onClick={() => setDeleteMode(true)}>
+                Deletar
+              </Button>
               <Button onClick={() => handleCancel()}>Voltar</Button>
-            </>
+            </div>
           )}
         </>
       ) : (
         <>
           <Form>
             <Form.Group className="mb-3" controlId="cpfFormGroup">
-              <Form.Label>CPF do produtor rural</Form.Label>
+              <h4>CPF do produtor rural</h4>
               <Form.Control
                 type="text"
                 onChange={(e) => setCpf(e.target.value)}
@@ -137,21 +144,23 @@ export default function SearchComponent() {
             </Form.Group>
           </Form>
           {loading ? (
-            <Button variant="primary" disabled>
-              <Spinner
-                as="span"
-                animation="border"
-                size="sm"
-                role="status"
-                aria-hidden="true"
-              />
-              Loading...
-            </Button>
+            <div className="buttons-container">
+              <Button variant="success" disabled>
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                Loading...
+              </Button>
+            </div>
           ) : (
-            <>
-              <Button onClick={() => handleSearch()}>Buscar</Button>
+            <div className="buttons-container">
+              <Button variant="success" onClick={() => handleSearch()}>Buscar</Button>
               <Button onClick={() => navigate('/')}>Voltar</Button>
-            </>
+            </div>
           )}
         </>
       )}
