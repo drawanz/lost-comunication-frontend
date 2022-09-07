@@ -48,11 +48,12 @@ export default function SearchComponent() {
         dispatch(changeLavoura(data[0].lavoura));
         dispatch(changeLongitude(data[0].longitude));
         dispatch(changeName(data[0].nome));
-        dispatch(changeCpf(data[0].CPF));
+        dispatch(changeCpf(`0${data[0].CPF}`));
         setSearchCompleted(true);
         setLoading(false);
       } catch (e) {
         alert(e.response.data.detail);
+        setLoading(false);
       }
     }
   };
@@ -66,11 +67,12 @@ export default function SearchComponent() {
       alert(response.data.message);
       dispatch(clearStore());
       setDeleteMode(false);
+      setSearchCompleted(false);
+      setCpf('');
+      setLoading(false);
     } catch (e) {
       alert(e.response.data.detail);
     }
-    setCpf('');
-    setLoading(false);
   };
 
   return (

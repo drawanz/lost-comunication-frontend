@@ -22,7 +22,7 @@ export default function InsertPage() {
     lavoura,
     data_colheita,
     evento,
-  } = useSelector((state) => state.newLost);
+  } = useSelector((state) => state.lost);
 
   const payload = {
     nome,
@@ -45,9 +45,11 @@ export default function InsertPage() {
         data: dataJson,
       });
       setLoading(false);
+      dispatch(clearStore());
       alert(data.message);
     } catch (e) {
       alert(e.response.data.detail);
+      setLoading(false);
     }
   };
 
@@ -59,7 +61,6 @@ export default function InsertPage() {
     if (verifyingInsert.message === undefined) {
       const dataJson = JSON.stringify(payload);
       await request(dataJson);
-      dispatch(clearStore());
     }
   };
 
