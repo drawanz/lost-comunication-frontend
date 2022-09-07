@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/extensions
 import isCpfValid from './cpfValidation.js';
 
 const monthDays = [
@@ -42,10 +41,10 @@ const verifyCpf = (cpf) => {
 
 const verifyCoords = (latitude, longitude) => {
   if (latitude === '') {
-    return { message: 'O campo latitude não pode ser vazio!' };
+    return { message: 'O campo latitude não pode ser vazio nem conter letras!' };
   }
   if (longitude === '') {
-    return { message: 'O campo longitude não pode ser vazio!' };
+    return { message: 'O campo longitude não pode ser vazio nem conter letras!' };
   }
   if (latitude < -90 || latitude > 90) {
     return { message: 'O campo latitude precisa estar entre -90° e 90°.' };
@@ -73,13 +72,17 @@ const verifyDateFormat = (date) => {
 };
 
 const verifyDateDays = (date) => {
-  const dateSubstrings = date.split('/');
-  const days = Number(dateSubstrings[0]);
-  const months = dateSubstrings[1];
-  const daysOffMonthInserted = monthDays.filter((e) => e.month === months)[0]
-    .days;
-  if (days > Number(daysOffMonthInserted)) {
-    return { message: `Dia precisa estar entre 01 e ${daysOffMonthInserted}!` };
+  if (date) {
+    const dateSubstrings = date.split('/');
+    const days = Number(dateSubstrings[0]);
+    const months = dateSubstrings[1];
+    const daysOffMonthInserted = monthDays.filter((e) => e.month === months)[0]
+      .days;
+    if (days > Number(daysOffMonthInserted)) {
+      return {
+        message: `Dia precisa estar entre 01 e ${daysOffMonthInserted}!`,
+      };
+    }
   }
   return true;
 };
