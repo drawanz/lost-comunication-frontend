@@ -42,7 +42,7 @@ export default function InsertPage() {
       setLoading(true);
       const { data } = await Axios({
         method: 'post',
-        url: 'http://softfocus-lc-api.herokuapp.com/lost/',
+        url: 'https://softfocus-lc-api.herokuapp.com/lost/',
         headers: { 'Content-Type': 'application/json' },
         data: dataJson,
       });
