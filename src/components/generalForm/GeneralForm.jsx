@@ -48,12 +48,12 @@ export default function GeneralForm() {
         />
       </Form.Group>
       <Form.Group controlId="cpfFormGroup">
-        <Form.Label>CPF do produtor rural</Form.Label>
+        <Form.Label>CPF do produtor rural (apenas números!)</Form.Label>
         <Form.Control
-          type="text"
+          type="number"
           onChange={(e) => dispatch(changeCpf(e.target.value))}
           value={CPF}
-          placeholder="Ex: 124.926.160-02 ou 12492616002"
+          placeholder="Ex: 12492616002"
         />
       </Form.Group>
       <Form.Group controlId="localizaçãoFormGroup">
