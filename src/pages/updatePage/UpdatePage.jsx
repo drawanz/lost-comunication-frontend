@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import insertValidations from '../../helpers/insertValidations.js';
 import GeneralForm from '../../components/generalForm/GeneralForm.jsx';
 import { clearStore } from '../../redux/reducers/lostCommunicationSlice.js';
+import './style.scss';
 
 export default function UpdatePage() {
   const [loading, setLoading] = useState(false);
@@ -71,24 +72,27 @@ export default function UpdatePage() {
   };
 
   return (
-    <Container>
+    <Container className="update-page-container">
+      <h4>Atualizando dados da comunicação de perda</h4>
       <GeneralForm />
       {loading ? (
-        <Button variant="primary" disabled>
-          <Spinner
-            as="span"
-            animation="border"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
+        <div className="buttons-container">
+          <Button variant="success" disabled>
+            <Spinner
+              as="span"
+              animation="border"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        </div>
       ) : (
-        <>
-          <Button onClick={() => handleUpdate()}>Atualizar</Button>
+        <div className="buttons-container">
+          <Button variant="success" onClick={() => handleUpdate()}>Atualizar</Button>
           <Button onClick={() => handleCancel()}>Voltar</Button>
-        </>
+        </div>
       )}
     </Container>
   );

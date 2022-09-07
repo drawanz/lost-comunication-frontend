@@ -10,11 +10,11 @@ export default function HomePage() {
     <Container className="home-page-container">
       <h4>Bem vindo à interface de comunicação de perda</h4>
 
-      <Button onClick={() => navigate('/insert')}>
+      <Button variant="success" onClick={() => navigate('/insert')}>
         Quero inserir uma perda
       </Button>
 
-      <Button onClick={() => navigate('/search')}>
+      <Button variant="success" onClick={() => navigate('/search')}>
         Quero consultar uma perda
       </Button>
     </Container>

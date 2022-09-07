@@ -1,0 +1,15 @@
+.update-page-container {
+  margin-top: 1rem;
+  h4 {
+    text-align: center;
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons-container button {
+    margin: 2rem 0 0 1rem;
+  }
+}
