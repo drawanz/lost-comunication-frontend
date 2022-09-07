@@ -17,7 +17,7 @@ const monthDays = [
 
 const verifyName = (name) => {
   if (name === '') {
-    return { message: 'O campo mome não pode ser vazio!' };
+    return { message: 'O campo nome não pode ser vazio!' };
   }
   if (name.length < 8) {
     return { message: 'O campo nome precisa ter mais de 8 caracteres.' };
