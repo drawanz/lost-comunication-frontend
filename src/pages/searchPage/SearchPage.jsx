@@ -119,7 +119,7 @@ export default function SearchComponent() {
             <Form.Group className="mb-3" controlId="cpfFormGroup">
               <Form.Label>CPF do produtor rural</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 onChange={(e) => setCpf(e.target.value)}
                 value={cpf}
                 placeholder="Use apenas números"
