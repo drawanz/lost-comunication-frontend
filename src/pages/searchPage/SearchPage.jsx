@@ -48,7 +48,7 @@ export default function SearchComponent() {
         dispatch(changeLavoura(data[0].lavoura));
         dispatch(changeLongitude(data[0].longitude));
         dispatch(changeName(data[0].nome));
-        dispatch(changeCpf(`0${data[0].CPF}`));
+        dispatch(changeCpf(String(data[0].CPF).padStart(11, '0')));
         setSearchCompleted(true);
         setLoading(false);
       } catch (e) {
@@ -70,7 +70,7 @@ export default function SearchComponent() {
       setSearchCompleted(false);
       setCpf('');
       setLoading(false);
-      navigate('/')
+      navigate('/');
     } catch (e) {
       alert(e.response.data.detail);
       setLoading(false);
