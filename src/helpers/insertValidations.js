@@ -26,6 +26,12 @@ const verifyCpf = (cpf) => {
 };
 
 const verifyCoords = (latitude, longitude) => {
+  if (latitude === '') {
+    return { message: 'O campo latitude não pode ser vazio!' };
+  }
+  if (longitude === '') {
+    return { message: 'O campo longitude não pode ser vazio!' };
+  }
   if (latitude < -90 || latitude > 90) {
     return { message: 'O campo latitude precisa estar entre -90° e 90°.' };
   }
