@@ -52,7 +52,7 @@ export default function GeneralForm() {
           type="text"
           onChange={(e) => dispatch(changeCpf(e.target.value))}
           value={CPF}
-          placeholder="Use apenas números"
+          placeholder="Ex: 124.926.160-02 ou 12492616002"
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="localizaçãoFormGroup">
@@ -76,7 +76,7 @@ export default function GeneralForm() {
           type="text"
           onChange={(e) => dispatch(changeLavoura(e.target.value))}
           value={lavoura}
-          placeholder="Ex: milho"
+          placeholder="Ex: Milho"
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="dataFormGroup">
