@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './pages/homePage/HomePage';
 import store from './redux/store';
 import UpdatePage from './pages/updatePage/UpdatePage';
+import './main.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>

@@ -1,26 +1,22 @@
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import './style.scss';
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container className="home-page-container">
       <h4>Bem vindo à interface de comunicação de perda</h4>
 
-      <div>
-        <p>Para inserir uma nova perda, por favor, clique no botão abaixo</p>
-        <Button onClick={() => navigate('/insert')}>Quero inserir uma perda</Button>
-      </div>
+      <Button onClick={() => navigate('/insert')}>
+        Quero inserir uma perda
+      </Button>
 
-      <div>
-        <p>
-          Para consultar, atualizar ou deletar uma perda, por favor, clique no botão
-          abaixo
-        </p>
-        <Button onClick={() => navigate('/search')}>Quero consultar uma perda</Button>
-      </div>
+      <Button onClick={() => navigate('/search')}>
+        Quero consultar uma perda
+      </Button>
     </Container>
   );
 }
