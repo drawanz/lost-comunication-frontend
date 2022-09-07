@@ -83,7 +83,10 @@ export default function InsertPage() {
           Loading...
         </Button>
       ) : (
-        <Button onClick={() => handleInsert()}>Finalizar</Button>
+        <>
+          <Button onClick={() => handleInsert()}>Finalizar</Button>
+          <Button onClick={() => navigate('/')}>Cancelar</Button>
+        </>
       )}
     </Container>
   );

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 import { Button, Spinner } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import cpfValidation from '../../helpers/cpfValidation.js';
 import {
@@ -27,6 +27,8 @@ export default function SearchComponent() {
   const [searchCompleted, setSearchCompleted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [deleteMode, setDeleteMode] = useState(false);
+
+  const { CPF } = useSelector((state) => state.lost);
 
   const handleSearch = async () => {
     const cpfIsValid = cpfValidation(cpf);
@@ -77,9 +79,16 @@ export default function SearchComponent() {
     }
   };
 
+  const handleCancel = () => {
+    dispatch(clearStore());
+    setCpf('');
+    setSearchCompleted(false);
+    navigate('/search');
+  };
+
   return (
     <Container>
-      {searchCompleted ? (
+      {searchCompleted || CPF ? (
         <>
           <ShowLostComponent />
           {deleteMode ? (
@@ -104,12 +113,13 @@ export default function SearchComponent() {
                   Prosseguir
                 </Button>
               )}
-              <Button onClick={() => setDeleteMode(false)}>Cancelar</Button>
+              <Button onClick={() => setDeleteMode(false)}>Voltar</Button>
             </>
           ) : (
             <>
               <Button onClick={() => navigate('/update')}>Editar</Button>
               <Button onClick={() => setDeleteMode(true)}>Deletar</Button>
+              <Button onClick={() => handleCancel()}>Voltar</Button>
             </>
           )}
         </>
@@ -138,7 +148,10 @@ export default function SearchComponent() {
               Loading...
             </Button>
           ) : (
-            <Button onClick={() => handleSearch()}>Buscar</Button>
+            <>
+              <Button onClick={() => handleSearch()}>Buscar</Button>
+              <Button onClick={() => navigate('/')}>Voltar</Button>
+            </>
           )}
         </>
       )}

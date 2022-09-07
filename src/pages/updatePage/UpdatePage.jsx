@@ -47,7 +47,7 @@ export default function UpdatePage() {
       alert(data.message);
       setLoading(false);
       dispatch(clearStore());
-      navigate('/')
+      navigate('/');
     } catch (e) {
       alert(e.response.data.detail);
       setLoading(false);
@@ -65,6 +65,11 @@ export default function UpdatePage() {
     }
   };
 
+  const handleCancel = () => {
+    // dispatch(clearStore());
+    navigate('/search');
+  };
+
   return (
     <Container>
       <GeneralForm />
@@ -80,7 +85,10 @@ export default function UpdatePage() {
           Loading...
         </Button>
       ) : (
-        <Button onClick={() => handleUpdate()}>Atualizar</Button>
+        <>
+          <Button onClick={() => handleUpdate()}>Atualizar</Button>
+          <Button onClick={() => handleCancel()}>Voltar</Button>
+        </>
       )}
     </Container>
   );
