@@ -3,7 +3,7 @@
 ## Apresentação do projeto
 
 - Essa é a parte frontend do projeto da aplicação desenvolvida para ser a versão simplificada de uma comunicação de perda de um produtor rural para o 
-programa Proagro Fácil. Aqui, foram aplicadas validações de dados, requisições à API, gerenciamento de dados e estados e estilização.
+programa Proagro Fácil. Aqui, foram aplicadas validações de dados, requisições à API, gerenciamento de dados/estados e estilização.
 
 ## Diferenciais
 
