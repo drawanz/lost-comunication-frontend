@@ -10,7 +10,6 @@ programa Proagro Fácil. Aqui, foram aplicadas validações de dados, requisiç�
 - O usuário possui a possibilidade de utilizar as funções de criar, ler, atualizar e deletar dados através da interface criada.
 - Todos os campos inseridos pelo usuário são submetidos a validações, evitando que dados incorretos possam entrar no banco de dados.
 - Estilização harmoniosa visando a facilidade do usuário de interagir com a aplicação.
-- Aplicação foi deployada e está disponível no seguinte link: https://drawanz-lost-communication.surge.sh/.
 
 ## Como rodar o projeto:
 
